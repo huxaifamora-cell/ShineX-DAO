@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ShineX DAO — Community-Owned Trading Treasury</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #F5A623;
+    --gold-light: #FFCA5A;
+    --gold-dim: #9A6200;
+    --ink: #0A0C10;
+    --ink-2: #13171F;
+    --ink-3: #1C2230;
+    --muted: #4A5568;
+    --subtle: #8896AD;
+    --border: rgba(201,168,76,0.18);
+    --border-soft: rgba(255,255,255,0.07);
+    --white: #FFFFFF;
+    --off-white: #F0EDE6;
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--ink);
+    color: var(--white);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .display { font-family: 'Space Grotesk', sans-serif; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,12,16,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border-soft);
+  }
+
+  .nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-logo span {
+    color: var(--gold);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    color: var(--subtle);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .btn-gold {
+    background: var(--gold);
+    color: var(--ink);
+  }
+  .btn-gold:hover { background: var(--gold-light); }
+
+  .btn-outline {
+    background: transparent;
+    border: 0.5px solid rgba(201,168,76,0.45);
+    color: var(--gold);
+  }
+  .btn-outline:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: var(--gold);
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 2rem; }
+
+  .container {
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  h1.display {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    color: var(--white);
+  }
+
+  h2.display {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  h3.display {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.2px;
+  }
+
+  p.body {
+    font-size: 16px;
+    color: var(--subtle);
+    line-height: 1.75;
+    max-width: 580px;
+  }
+
+  /* HERO */
+  #hero {
+    padding-top: 9rem;
+    padding-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--subtle);
+    line-height: 1.7;
+    margin: 1.5rem 0 2.5rem;
+    max-width: 460px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 3.5rem;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .stat-chip {
+    background: var(--ink-3);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--subtle);
+    line-height: 1.4;
+  }
+
+  .stat-chip strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gold);
+    margin-bottom: 2px;
+  }
+
+  /* Hero visual — treasury flow */
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 2rem;
+  }
+
+  .flow-node {
+    background: var(--ink-3);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+    width: 220px;
+    text-align: center;
+    position: relative;
+  }
+
+  .flow-node.accent {
+    background: rgba(201,168,76,0.10);
+    border-color: rgba(201,168,76,0.4);
+    color: var(--gold-light);
+  }
+
+  .flow-arrow {
+    width: 0.5px;
+    height: 28px;
+    background: var(--border);
+    margin: 0 auto;
+  }
+
+  /* WHAT IS SHINEX */
+  #what {
+    background: var(--ink-2);
+  }
+
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .what-points {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .what-point {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .what-index {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.12);
+    border: 0.5px solid var(--border);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+
+  /* HOW IT WORKS */
+  #how {
+    background: var(--ink);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-top: 3.5rem;
+    position: relative;
+  }
+
+  .steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 10%;
+    right: 10%;
+    height: 0.5px;
+    background: var(--border);
+    z-index: 0;
+  }
+
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 0.75rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--ink-3);
+    border: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .step-item h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.1px;
+  }
+
+  .step-item p {
+    font-size: 12px;
+    color: var(--subtle);
+    line-height: 1.6;
+  }
+
+  /* MODEL */
+  #model {
+    background: var(--ink-2);
+  }
+
+  .model-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 3rem;
+  }
+
+  .model-card {
+    background: var(--ink-3);
+    border: 0.5px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+  }
+
+  .model-icon {
+    font-size: 22px;
+    margin-bottom: 1rem;
+  }
+
+  /* SX TOKEN */
+  #token {
+    background: var(--ink);
+  }
+
+  .token-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .token-overview {
+    background: var(--ink-3);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+  }
+
+  .token-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 0.5px solid var(--border-soft);
+    font-size: 14px;
+  }
+
+  .token-row:last-child { border-bottom: none; }
+
+  .token-row-label { color: var(--subtle); }
+  .token-row-val { color: var(--white); font-weight: 500; }
+
+  .utility-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 2rem;
+  }
+
+  .utility-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--subtle);
+  }
+
+  .utility-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* VALUE MODEL */
+  #value {
+    background: var(--ink-2);
+  }
+
+  .value-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .value-chain {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+  }
+
+  .value-node {
+    width: 100%;
+    max-width: 280px;
+    background: var(--ink-3);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 24px;
+    text-align: center;
+  }
+
+  .value-node-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--subtle);
+    margin-bottom: 2px;
+  }
+
+  .value-node-val {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .value-node.highlight {
+    background: rgba(201,168,76,0.08);
+    border-color: rgba(201,168,76,0.35);
+  }
+
+  .value-node.highlight .value-node-val { color: var(--gold-light); }
+
+  /* PRINCIPLES */
+  #principles {
+    background: var(--ink);
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+    margin-top: 3rem;
+  }
+
+  .principle-card {
+    background: var(--ink-3);
+    border: 0.5px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+
+  .principle-card:hover { border-color: var(--border); }
+
+  .principle-icon {
+    font-size: 26px;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  /* ROADMAP */
+  #roadmap {
+    background: var(--ink-2);
+  }
+
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 3rem;
+  }
+
+  .phase-card {
+    background: var(--ink-3);
+    border: 0.5px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    position: relative;
+  }
+
+  .phase-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--border);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  .phase-card.active::before { background: var(--gold); }
+
+  .phase-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .phase-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .phase-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .phase-items li {
+    font-size: 13px;
+    color: var(--subtle);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .phase-items li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--muted);
+    flex-shrink: 0;
+  }
+
+  /* DOCUMENTS */
+  #documents {
+    background: var(--ink);
+  }
+
+  .docs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 3rem;
+  }
+
+  .doc-card {
+    background: var(--ink-3);
+    border: 0.5px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .doc-icon {
+    font-size: 28px;
+    margin-bottom: 0.25rem;
+  }
+
+  .doc-btn {
+    margin-top: auto;
+    display: inline-block;
+    padding: 9px 18px;
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 500;
+    background: transparent;
+    border: 0.5px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    text-decoration: none;
+    transition: all 0.2s;
+    width: fit-content;
+    cursor: pointer;
+  }
+
+  .doc-btn:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: var(--gold);
+  }
+
+  /* COMMUNITY */
+  #community {
+    background: var(--ink-2);
+    text-align: center;
+  }
+
+  .community-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .community-inner h2.display { margin-bottom: 1rem; }
+  .community-inner p.body { max-width: 100%; color: var(--subtle); margin: 0 auto 2.5rem; }
+
+  .community-cta {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    border-top: 0.5px solid var(--border-soft);
+    padding: 3.5rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .footer-brand-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .footer-tagline {
+    font-size: 13px;
+    color: var(--subtle);
+    margin-bottom: 4px;
+  }
+
+  .footer-meta {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: var(--subtle);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    max-width: 1060px;
+    margin: 2.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border-soft);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* Divider */
+  .divider {
+    width: 40px;
+    height: 1.5px;
+    background: var(--gold);
+    margin-bottom: 2rem;
+    opacity: 0.5;
+  }
+
+  /* Gold glow ring */
+  .glow-ring {
+    position: absolute;
+    top: 50%;
+    right: -120px;
+    transform: translateY(-50%);
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  @media (max-width: 800px) {
+    .hero-grid, .what-grid, .token-layout, .value-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .steps-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .steps-grid::before { display: none; }
+    .model-cards, .docs-grid { grid-template-columns: 1fr; }
+    .roadmap-grid { grid-template-columns: 1fr 1fr; }
+    .principles-grid { grid-template-columns: 1fr 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .footer-links { align-items: flex-start; }
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 500px) {
+    .roadmap-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAQDAwQDAwQEAwQFBAQFBgoHBgYGBg0JCggKDw0QEA8NDw4RExgUERIXEg4PFRwVFxkZGxsbEBQdHx0aHxgaGxr/2wBDAQQFBQYFBgwHBwwaEQ8RGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhr/wgARCANVBQADASIAAhEBAxEB/8QAHAABAAICAwEAAAAAAAAAAAAAAAEIAgcEBQYD/8QAGwEBAAEFAQAAAAAAAAAAAAAAAAECAwQFBgf/2gAMAwEAAhADEAAAAa/gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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jp/v5vmT/wBzJJO8neTvJJ3k7U7yRLJ/BLJkkb2JJJglhP8A5iD/2gAMAwEAAgADAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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" alt="ShineX DAO" style="height:48px;width:auto;display:block;mix-blend-mode:lighten;" /></a>
+  <ul class="nav-links">
+    <li><a href="#what">What is it</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#token">SX Token</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#documents">Docs</a></li>
+    <li><a href="#community" class="btn btn-gold" style="padding:8px 18px;font-size:13px;">Join Community</a></li>
+  </ul>
+</nav>
+
+<!-- SECTION 1 — HERO -->
+<section id="hero">
+  <div class="glow-ring"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <p class="section-label">Community-Governed Treasury</p>
+        <h1 class="display">Community&#8209;Owned<br/>Trading Treasury</h1>
+        <p class="hero-sub">ShineX DAO is a treasury-backed ecosystem where members collectively own, govern, and grow capital through structured copy-trading strategies.</p>
+        <div class="hero-cta">
+          <button onclick="document.getElementById('whitepaper-modal').style.display='block'" class="btn btn-outline">Read Whitepaper</button>
+          <a href="#community" class="btn btn-gold">Join Community</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-chip"><strong>1,000 SX</strong>Fixed supply, fully governed</div>
+          <div class="stat-chip"><strong>Treasury&#8209;Backed</strong>Capital under DAO custody</div>
+          <div class="stat-chip"><strong>Community Governance</strong>Every holder has a vote</div>
+          <div class="stat-chip"><strong>Copy&#8209;Trading</strong>Strategy-driven allocation</div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="flow-node">Members</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node">SX Tokens</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node accent">DAO Treasury</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node">Copy Trading</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node">Treasury Growth</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node accent">Member Benefits</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 — WHAT IS SHINEX DAO -->
+<section id="what">
+  <div class="container">
+    <div class="what-grid">
+      <div>
+        <p class="section-label">Overview</p>
+        <h2 class="display">What is ShineX DAO?</h2>
+        <div class="divider"></div>
+        <p class="body">ShineX DAO combines community ownership, treasury management, and copy-trading into a single coordinated ecosystem.</p>
+        <div class="what-points">
+          <div class="what-point">
+            <div class="what-index">1</div>
+            <p style="font-size:14px; color:var(--subtle); line-height:1.7;">Members participate by holding SX tokens, which represent ownership and governance rights within the DAO.</p>
+          </div>
+          <div class="what-point">
+            <div class="what-index">2</div>
+            <p style="font-size:14px; color:var(--subtle); line-height:1.7;">The treasury allocates capital to approved trading strategies while maintaining full custody of all funds.</p>
+          </div>
+          <div class="what-point">
+            <div class="what-index">3</div>
+            <p style="font-size:14px; color:var(--subtle); line-height:1.7;">As the treasury grows, value flows back through the network to every member of the ecosystem.</p>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:center; padding: 2rem 0;">
+        <div style="background:var(--ink-3); border:0.5px solid var(--border); border-radius:var(--radius-lg); padding:2.5rem 2rem; max-width:340px; width:100%;">
+          <p style="font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); text-align:center; margin-bottom:1.75rem;">Ecosystem Model</p>
+          <div style="display:flex; flex-direction:column; gap:0; align-items:center;">
+            <div style="background:rgba(201,168,76,0.10); border:0.5px solid rgba(201,168,76,0.3); border-radius:8px; padding:10px 36px; font-size:14px; font-weight:500; color:var(--gold-light); text-align:center; width:220px;">Members</div>
+            <div style="width:0.5px; height:24px; background:var(--border); margin:0 auto;"></div>
+            <div style="background:var(--ink); border:0.5px solid var(--border-soft); border-radius:8px; padding:10px 36px; font-size:14px; color:var(--white); text-align:center; width:220px;">SX Tokens</div>
+            <div style="width:0.5px; height:24px; background:var(--border); margin:0 auto;"></div>
+            <div style="background:rgba(201,168,76,0.10); border:0.5px solid rgba(201,168,76,0.3); border-radius:8px; padding:10px 36px; font-size:14px; font-weight:500; color:var(--gold-light); text-align:center; width:220px;">DAO Treasury</div>
+            <div style="width:0.5px; height:24px; background:var(--border); margin:0 auto;"></div>
+            <div style="background:var(--ink); border:0.5px solid var(--border-soft); border-radius:8px; padding:10px 36px; font-size:14px; color:var(--white); text-align:center; width:220px;">Copy Trading</div>
+            <div style="width:0.5px; height:24px; background:var(--border); margin:0 auto;"></div>
+            <div style="background:var(--ink); border:0.5px solid var(--border-soft); border-radius:8px; padding:10px 36px; font-size:14px; color:var(--white); text-align:center; width:220px;">Treasury Growth</div>
+            <div style="width:0.5px; height:24px; background:var(--border); margin:0 auto;"></div>
+            <div style="background:rgba(201,168,76,0.10); border:0.5px solid rgba(201,168,76,0.3); border-radius:8px; padding:10px 36px; font-size:14px; font-weight:500; color:var(--gold-light); text-align:center; width:220px;">Member Benefits</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 — HOW THE SYSTEM WORKS -->
+<section id="how">
+  <div class="container">
+    <p class="section-label">Process</p>
+    <h2 class="display">How the system works</h2>
+    <div class="divider"></div>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <h3>Acquire SX</h3>
+        <p>Become a member through ownership of SX tokens.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <h3>Treasury Formation</h3>
+        <p>Capital is pooled into the DAO Treasury.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <h3>Strategy Allocation</h3>
+        <p>Governance approves strategy providers and risk frameworks.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <h3>Copy-Trading</h3>
+        <p>Treasury capital follows approved strategies through automated systems.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <h3>Treasury Growth</h3>
+        <p>Profits increase treasury value and strengthen the ecosystem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — THE SHINEX DAO MODEL -->
+<section id="model">
+  <div class="container">
+    <p class="section-label">Architecture</p>
+    <h2 class="display">The ShineX DAO model</h2>
+    <div class="divider"></div>
+    <p class="body">Four interconnected layers form the structural foundation of the ShineX ecosystem.</p>
+    <div class="model-cards">
+      <div class="model-card">
+        <div class="model-icon">🏛️</div>
+        <h3 class="display">Governance layer</h3>
+        <p style="font-size:14px; color:var(--subtle); line-height:1.7;">Determines policies, allocations, risk frameworks, and ecosystem direction. SX holders vote on all major decisions.</p>
+      </div>
+      <div class="model-card">
+        <div class="model-icon">⚙️</div>
+        <h3 class="display">Executive layer</h3>
+        <p style="font-size:14px; color:var(--subtle); line-height:1.7;">Implements governance decisions and manages day-to-day operations across the ecosystem.</p>
+      </div>
+      <div class="model-card">
+        <div class="model-icon">🏦</div>
+        <h3 class="display">Treasury</h3>
+        <p style="font-size:14px; color:var(--subtle); line-height:1.7;">The financial engine that powers the ecosystem. All funds remain under treasury control with no direct access granted to strategy providers.</p>
+      </div>
+      <div class="model-card">
+        <div class="model-icon">📈</div>
+        <h3 class="display">Strategy providers</h3>
+        <p style="font-size:14px; color:var(--subtle); line-height:1.7;">Generate trading signals without direct access to treasury capital. Accountability is built into every layer of the process.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 — SX TOKEN -->
+<section id="token">
+  <div class="container">
+    <div class="token-layout">
+      <div>
+        <p class="section-label">Token</p>
+        <h2 class="display">The SX token</h2>
+        <div class="divider"></div>
+        <p class="body">SX is the governance and treasury token of the ShineX DAO ecosystem. It represents ownership, access, and participation rights.</p>
+        <div class="utility-list">
+          <div class="utility-item"><span class="utility-dot"></span>Governance rights</div>
+          <div class="utility-item"><span class="utility-dot"></span>Treasury participation</div>
+          <div class="utility-item"><span class="utility-dot"></span>Community membership</div>
+          <div class="utility-item"><span class="utility-dot"></span>Ecosystem access</div>
+          <div class="utility-item"><span class="utility-dot"></span>Distribution eligibility</div>
+        </div>
+      </div>
+      <div>
+        <div class="token-overview">
+          <p style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:1.25rem;">Token overview</p>
+          <div class="token-row">
+            <span class="token-row-label">Name</span>
+            <span class="token-row-val">ShineX</span>
+          </div>
+          <div class="token-row">
+            <span class="token-row-label">Symbol</span>
+            <span class="token-row-val" style="color:var(--gold);">SX</span>
+          </div>
+          <div class="token-row">
+            <span class="token-row-label">Total supply</span>
+            <span class="token-row-val">1,000</span>
+          </div>
+          <div class="token-row">
+            <span class="token-row-label">Type</span>
+            <span class="token-row-val">Governance &amp; Treasury</span>
+          </div>
+          <div class="token-row">
+            <span class="token-row-label">Supply model</span>
+            <span class="token-row-val">Fixed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 — VALUE MODEL -->
+<section id="value">
+  <div class="container">
+    <div class="value-layout">
+      <div>
+        <p class="section-label">Value model</p>
+        <h2 class="display">Treasury growth drives ecosystem value</h2>
+        <div class="divider"></div>
+        <p class="body">The ShineX Treasury serves as the central capital engine of the ecosystem. As treasury value grows through trading performance, the value backing the ecosystem increases.</p>
+        <p class="body" style="margin-top:1rem;">The fixed supply of SX ensures treasury growth is fully reflected across the network, benefitting every member proportionally.</p>
+      </div>
+      <div class="value-chain">
+        <div class="value-node highlight">
+          <div class="value-node-label">Starting point</div>
+          <div class="value-node-val">Treasury Growth</div>
+        </div>
+        <div style="width:0.5px; height:28px; background:var(--border); margin:0 auto;"></div>
+        <div class="value-node">
+          <div class="value-node-label">Follows</div>
+          <div class="value-node-val">NAV Growth</div>
+        </div>
+        <div style="width:0.5px; height:28px; background:var(--border); margin:0 auto;"></div>
+        <div class="value-node">
+          <div class="value-node-label">Enables</div>
+          <div class="value-node-val">Liquidity Growth</div>
+        </div>
+        <div style="width:0.5px; height:28px; background:var(--border); margin:0 auto;"></div>
+        <div class="value-node highlight">
+          <div class="value-node-label">Result</div>
+          <div class="value-node-val">SX Ecosystem Growth</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7 — CORE PRINCIPLES -->
+<section id="principles">
+  <div class="container">
+    <p class="section-label">Foundation</p>
+    <h2 class="display">Core principles</h2>
+    <div class="divider"></div>
+    <div class="principles-grid">
+      <div class="principle-card">
+        <span class="principle-icon">🤝</span>
+        <h3 class="display">Community ownership</h3>
+        <p style="font-size:13px; color:var(--subtle); line-height:1.65; margin-top:6px;">The treasury belongs to the community. Every SX holder has a stake in the ecosystem's direction and outcomes.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-icon">🔒</span>
+        <h3 class="display">Treasury custody</h3>
+        <p style="font-size:13px; color:var(--subtle); line-height:1.65; margin-top:6px;">Funds remain under treasury control at all times. No third party holds or controls member capital.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-icon">🏛️</span>
+        <h3 class="display">Structured governance</h3>
+        <p style="font-size:13px; color:var(--subtle); line-height:1.65; margin-top:6px;">SX holders determine strategic direction through a structured governance framework.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-icon">🛡️</span>
+        <h3 class="display">Risk management</h3>
+        <p style="font-size:13px; color:var(--subtle); line-height:1.65; margin-top:6px;">Capital preservation remains a priority. Risk frameworks are set by governance before any allocation.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-icon">📋</span>
+        <h3 class="display">Transparency</h3>
+        <p style="font-size:13px; color:var(--subtle); line-height:1.65; margin-top:6px;">Treasury activities are openly reported. Members always know what is happening with ecosystem capital.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8 — ROADMAP -->
+<section id="roadmap">
+  <div class="container">
+    <p class="section-label">Plan</p>
+    <h2 class="display">Roadmap</h2>
+    <div class="divider"></div>
+    <div class="roadmap-grid">
+      <div class="phase-card active">
+        <div class="phase-label">Phase 1</div>
+        <div class="phase-title">Foundation</div>
+        <ul class="phase-items">
+          <li>Launch DAO</li>
+          <li>Treasury formation</li>
+          <li>Governance setup</li>
+        </ul>
+      </div>
+      <div class="phase-card">
+        <div class="phase-label">Phase 2</div>
+        <div class="phase-title">Growth</div>
+        <ul class="phase-items">
+          <li>Strategy expansion</li>
+          <li>Reporting systems</li>
+          <li>Liquidity framework</li>
+        </ul>
+      </div>
+      <div class="phase-card">
+        <div class="phase-label">Phase 3</div>
+        <div class="phase-title">Scale</div>
+        <ul class="phase-items">
+          <li>Ecosystem development</li>
+          <li>Treasury growth</li>
+          <li>Additional services</li>
+        </ul>
+      </div>
+      <div class="phase-card">
+        <div class="phase-label">Phase 4</div>
+        <div class="phase-title">Maturity</div>
+        <ul class="phase-items">
+          <li>Community-owned financial ecosystem</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9 — DOCUMENTS -->
+<section id="documents">
+  <div class="container">
+    <p class="section-label">Documents</p>
+    <h2 class="display">Governance documents</h2>
+    <div class="divider"></div>
+    <div class="docs-grid">
+      <div class="doc-card">
+        <div class="doc-icon">📜</div>
+        <h3 class="display">Founding Charter</h3>
+        <p style="font-size:13px; color:var(--subtle); line-height:1.65; flex:1;">Defines the purpose, mission, and creation of ShineX DAO. The founding legal and philosophical basis of the ecosystem.</p>
+        <button onclick="document.getElementById('charter-modal').style.display='block'" class="doc-btn">View Charter</button>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">📖</div>
+        <h3 class="display">Constitution</h3>
+        <p style="font-size:13px; color:var(--subtle); line-height:1.65; flex:1;">Defines governance rules, treasury principles, and the rights and responsibilities of SX token holders.</p>
+        <button onclick="document.getElementById('constitution-modal').style.display='block'" class="doc-btn">View Constitution</button>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">📄</div>
+        <h3 class="display">Whitepaper</h3>
+        <p style="font-size:13px; color:var(--subtle); line-height:1.65; flex:1;">Explains the full ecosystem model, tokenomics, treasury mechanics, and the strategic vision for ShineX DAO.</p>
+        <button onclick="document.getElementById('whitepaper-modal').style.display='block'" class="doc-btn">View Whitepaper</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 10 — COMMUNITY -->
+<section id="community">
+  <div class="container">
+    <div class="community-inner">
+      <p class="section-label" style="text-align:center;">Community</p>
+      <h2 class="display">Join ShineX DAO</h2>
+      <div class="divider" style="margin:1.5rem auto 1.5rem;"></div>
+      <p class="body">Become part of a community-owned treasury ecosystem built around governance, transparency, and long-term growth. Every member shapes the direction of the DAO.</p>
+      <div class="community-cta">
+        <a href="#" class="btn btn-gold">Join Community</a>
+        <a href="#" class="btn btn-outline">Follow Updates</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div style="margin-bottom:10px;"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAQDAwQDAwQEAwQFBAQFBgoHBgYGBg0JCggKDw0QEA8NDw4RExgUERIXEg4PFRwVFxkZGxsbEBQdHx0aHxgaGxr/2wBDAQQFBQYFBgwHBwwaEQ8RGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhr/wgARCANVBQADASIAAhEBAxEB/8QAHAABAAICAwEAAAAAAAAAAAAAAAEIAgcEBQYD/8QAGwEBAAEFAQAAAAAAAAAAAAAAAAECAwQFBgf/2gAMAwEAAhADEAAAAa/gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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jp/v5vmT/wBzJJO8neTvJJ3k7U7yRLJ/BLJkkb2JJJglhP8A5iD/2gAMAwEAAgADAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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" alt="ShineX DAO" style="height:44px;width:auto;display:block;mix-blend-mode:lighten;" /></div>
+      <div class="footer-tagline">Community-Owned Treasury Ecosystem</div>
+      <div class="footer-meta">Governance &bull; Treasury &bull; Growth</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#documents">Whitepaper</a></li>
+      <li><a href="#documents">Constitution</a></li>
+      <li><a href="#documents">Founding Charter</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="mailto:contact@shinexdao.io">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 ShineX DAO. All rights reserved.
+  </div>
+</footer>
+
+
+<!-- FOUNDING CHARTER MODAL -->
+<div id="charter-modal" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px); overflow-y:auto; padding:2rem 1rem;">
+  <div style="max-width:720px; margin:2rem auto; background:#13171F; border:0.5px solid rgba(245,166,35,0.2); border-radius:16px; overflow:hidden;">
+    <!-- Modal Header -->
+    <div style="display:flex; align-items:center; justify-content:space-between; padding:1.25rem 1.75rem; border-bottom:0.5px solid rgba(255,255,255,0.07); background:#1C2230;">
+      <div>
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#F5A623; margin-bottom:3px;">Governance Document</p>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#fff; margin:0;">Founding Charter</h2>
+      </div>
+      <button onclick="document.getElementById('charter-modal').style.display='none'" style="background:rgba(255,255,255,0.06); border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; width:36px; height:36px; color:#8896AD; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:1;">&times;</button>
+    </div>
+    <!-- Modal Body -->
+    <div style="padding:2.5rem 2rem; font-family:'Inter',sans-serif; color:#8896AD; line-height:1.8; font-size:15px;">
+
+      <h1 style="font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:#fff; text-align:center; margin-bottom:2.5rem; letter-spacing:-0.5px;">SHINEX DAO FOUNDING CHARTER</h1>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 1 — Establishment</h3>
+        <p>The ShineX DAO is hereby established as a community-owned treasury ecosystem governed by SX token holders.</p>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 2 — Mission</h3>
+        <p>The mission of ShineX DAO is to create a sustainable treasury-backed ecosystem that combines community ownership, structured governance, and professional capital allocation through approved copy-trading systems.</p>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 3 — Treasury Ownership</h3>
+        <p>The treasury shall be owned collectively by SX token holders.</p>
+        <p style="margin-top:0.5rem;">No individual member, executive, committee, or strategy provider shall own treasury assets.</p>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 4 — Governance Structure</h3>
+        <p>ShineX DAO shall operate through:</p>
+        <ul style="margin:0.75rem 0 0.75rem 1.25rem; display:flex; flex-direction:column; gap:6px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Governance Layer</li>
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Executive Layer</li>
+        </ul>
+        <p>The Governance Layer determines policy and strategic direction.</p>
+        <p style="margin-top:0.5rem;">The Executive Layer implements approved decisions and oversees operational execution.</p>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 5 — SX Token</h3>
+        <p>SX is the native governance and ownership token of ShineX DAO.</p>
+        <p style="margin-top:0.5rem;">SX grants:</p>
+        <ul style="margin:0.75rem 0 0 0; display:flex; flex-direction:column; gap:6px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Governance rights</li>
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Treasury participation rights</li>
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Ecosystem participation rights</li>
+        </ul>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 6 — Treasury Principle</h3>
+        <p>Treasury capital shall remain under DAO-controlled custody at all times.</p>
+        <p style="margin-top:0.5rem;">Strategy providers may generate signals but shall not have direct control over treasury assets.</p>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 7 — Core Values</h3>
+        <p>ShineX DAO shall operate according to:</p>
+        <ul style="margin:0.75rem 0 0 0; display:flex; flex-direction:column; gap:6px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Transparency</li>
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Accountability</li>
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Capital preservation</li>
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Community ownership</li>
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Long-term growth</li>
+        </ul>
+      </div>
+
+      <div style="margin-bottom:1rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 8 — Amendments</h3>
+        <p>This Founding Charter may only be amended through governance-approved procedures defined by the DAO Constitution.</p>
+      </div>
+
+      <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:0.5px solid rgba(255,255,255,0.07); text-align:center; font-size:12px; color:#4A5568;">
+        ShineX DAO &bull; Founding Charter &bull; Official Governance Document
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- CONSTITUTION MODAL -->
+<div id="constitution-modal" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px); overflow-y:auto; padding:2rem 1rem;">
+  <div style="max-width:720px; margin:2rem auto; background:#13171F; border:0.5px solid rgba(245,166,35,0.2); border-radius:16px; overflow:hidden;">
+    <div style="display:flex; align-items:center; justify-content:space-between; padding:1.25rem 1.75rem; border-bottom:0.5px solid rgba(255,255,255,0.07); background:#1C2230;">
+      <div>
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#F5A623; margin-bottom:3px;">Governance Document</p>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#fff; margin:0;">Constitution</h2>
+      </div>
+      <button onclick="document.getElementById('constitution-modal').style.display='none'" style="background:rgba(255,255,255,0.06); border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; width:36px; height:36px; color:#8896AD; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:1;">&times;</button>
+    </div>
+    <div style="padding:2.5rem 2rem; font-family:'Inter',sans-serif; color:#8896AD; line-height:1.8; font-size:15px;">
+
+      <h1 style="font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:#fff; text-align:center; margin-bottom:2.5rem; letter-spacing:-0.5px;">SHINEX DAO CONSTITUTION</h1>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 1 — Purpose</h3>
+        <p>ShineX DAO exists to build a community-owned treasury that allocates capital to approved copy-trading strategies while maintaining transparency, accountability, and long-term treasury growth.</p>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 2 — Ownership</h3>
+        <p>The ShineX DAO Treasury is collectively owned by SX token holders.</p>
+        <p style="margin-top:0.5rem;">No individual, committee, strategy provider, or executive member owns DAO treasury assets.</p>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 3 — Governance Authority</h3>
+        <p>The Governance Layer represents the highest decision-making authority within the DAO.</p>
+        <p style="margin-top:0.5rem;">Major treasury decisions must be approved through governance voting.</p>
+        <p style="margin-top:0.5rem;">Each SX token represents one vote.</p>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 4 — Executive Authority</h3>
+        <p>The Executive Layer is responsible for implementing governance decisions and managing operational activities.</p>
+        <p style="margin-top:0.5rem;">The Executive Layer may not override governance decisions.</p>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 5 — Treasury Custody</h3>
+        <p>All treasury funds remain under DAO-controlled custody.</p>
+        <p style="margin-top:0.5rem;">Strategy providers shall never have direct access to treasury capital.</p>
+        <p style="margin-top:0.5rem;">All trading activity shall occur through approved execution systems.</p>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 6 — Treasury Protection</h3>
+        <p>Protection of treasury capital is the highest operational priority of the DAO.</p>
+        <p style="margin-top:0.5rem;">Risk management systems, reserve policies, and treasury safeguards must be maintained at all times.</p>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 7 — Token Supply</h3>
+        <p>The total supply of SX token shall be fixed at 1,000 tokens unless modified through a supermajority governance vote.</p>
+        <p style="margin-top:0.5rem;">Any change to token supply must be publicly disclosed before implementation.</p>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 8 — Transparency</h3>
+        <p>The DAO shall maintain transparent reporting regarding:</p>
+        <ul style="margin:0.75rem 0 0 0; display:flex; flex-direction:column; gap:6px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Treasury value</li>
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Trading performance</li>
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Liquidity reserves</li>
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Governance decisions</li>
+          <li style="display:flex; gap:10px; align-items:flex-start;"><span style="color:#F5A623; margin-top:6px; font-size:6px;">●</span>Major operational activities</li>
+        </ul>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 9 — Sub-Communities</h3>
+        <p>Both Governance and Executive Layers may establish sub-communities and committees to perform specialized functions.</p>
+        <p style="margin-top:0.5rem;">Such groups remain accountable to the DAO and may be modified or dissolved through governance processes.</p>
+      </div>
+
+      <div style="margin-bottom:1rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Article 10 — Long-Term Mission</h3>
+        <p>The long-term objective of ShineX DAO is to build a sustainable, community-owned financial ecosystem where treasury growth, governance participation, and ecosystem development create value for all members.</p>
+      </div>
+
+      <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:0.5px solid rgba(255,255,255,0.07); text-align:center; font-size:12px; color:#4A5568;">
+        ShineX DAO &bull; Constitution &bull; Official Governance Document
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- WHITEPAPER MODAL -->
+<div id="whitepaper-modal" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px); overflow-y:auto; padding:2rem 1rem;">
+  <div style="max-width:760px; margin:2rem auto; background:#13171F; border:0.5px solid rgba(245,166,35,0.2); border-radius:16px; overflow:hidden;">
+    <!-- Header -->
+    <div style="display:flex; align-items:center; justify-content:space-between; padding:1.25rem 1.75rem; border-bottom:0.5px solid rgba(255,255,255,0.07); background:#1C2230; position:sticky; top:0; z-index:10;">
+      <div>
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#F5A623; margin-bottom:3px;">Governance Document</p>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#fff; margin:0;">Whitepaper <span style="font-size:12px; font-weight:400; color:#4A5568; margin-left:6px;">Version 1.0</span></h2>
+      </div>
+      <button onclick="document.getElementById('whitepaper-modal').style.display='none'" style="background:rgba(255,255,255,0.06); border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; width:36px; height:36px; color:#8896AD; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:1; flex-shrink:0;">&times;</button>
+    </div>
+
+    <!-- Body -->
+    <div style="padding:2.5rem 2rem; font-family:'Inter',sans-serif; color:#8896AD; line-height:1.8; font-size:15px;">
+
+      <h1 style="font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:#fff; text-align:center; margin-bottom:4px; letter-spacing:-0.5px;">SHINEX DAO WHITEPAPER</h1>
+      <p style="text-align:center; color:#4A5568; font-size:13px; margin-bottom:2.5rem;">Version 1.0 &bull; Community-Owned Treasury Ecosystem</p>
+
+      <!-- TOC -->
+      <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:10px; padding:1.25rem 1.5rem; margin-bottom:2.5rem;">
+        <p style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#F5A623; margin-bottom:0.75rem;">Contents</p>
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <a href="#wp-1" style="font-size:13px; color:#8896AD; text-decoration:none;">1. ShineX DAO Overview</a>
+          <a href="#wp-2" style="font-size:13px; color:#8896AD; text-decoration:none;">2. DAO Governance Model and Sub-Communities</a>
+          <a href="#wp-3" style="font-size:13px; color:#8896AD; text-decoration:none;">3. DAO Token Role</a>
+          <a href="#wp-4" style="font-size:13px; color:#8896AD; text-decoration:none;">4. Token Allocation</a>
+          <a href="#wp-5" style="font-size:13px; color:#8896AD; text-decoration:none;">5. DAO Treasury Model</a>
+          <a href="#wp-6" style="font-size:13px; color:#8896AD; text-decoration:none;">6. DAO Structure</a>
+          <a href="#wp-7" style="font-size:13px; color:#8896AD; text-decoration:none;">7. DAO Principle</a>
+          <a href="#wp-8" style="font-size:13px; color:#8896AD; text-decoration:none;">8. Key Innovation</a>
+          <a href="#wp-9" style="font-size:13px; color:#8896AD; text-decoration:none;">9. Value Principle</a>
+          <a href="#wp-10" style="font-size:13px; color:#8896AD; text-decoration:none;">10. Long-Term Vision</a>
+          <a href="#wp-11" style="font-size:13px; color:#8896AD; text-decoration:none;">11. Simple Summary</a>
+        </div>
+      </div>
+
+      <!-- Section 1 -->
+      <div id="wp-1" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">1. ShineX DAO Overview</h3>
+        <p>ShineX DAO is a community-owned, treasury-backed trading ecosystem where members collectively govern capital allocated to structured copy-trading strategies.</p>
+        <p style="margin-top:0.75rem;">The system combines community ownership, treasury management, decentralized governance, and professional strategy execution into a single ecosystem designed for long-term growth.</p>
+        <p style="margin-top:0.75rem;">At its core, ShineX DAO operates as a structured financial organization where members collectively own the treasury, participate in governance, and benefit from treasury growth.</p>
+        <div style="background:#1C2230; border-left:2px solid #F5A623; border-radius:0 8px 8px 0; padding:1rem 1.25rem; margin-top:1rem;">
+          <p style="color:#fff; font-style:italic; font-size:14px;">Community-owned capital governed collectively and deployed through structured execution systems.</p>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div id="wp-2" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">2. DAO Governance Model and Sub-Communities</h3>
+        <p>ShineX DAO operates through a two-layer governance framework designed to separate decision-making from execution.</p>
+
+        <p style="margin-top:1.25rem; color:#fff; font-weight:500; font-size:14px;">Governance Layer (Decision Authority)</p>
+        <p style="margin-top:0.5rem;">The Governance Layer represents the collective authority of SX token holders and is responsible for determining the strategic direction of the ecosystem. Each SX token represents one vote.</p>
+        <p style="margin-top:0.75rem; font-size:13px; color:#6B7A94;">Responsibilities:</p>
+        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Approval and removal of strategy providers</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Treasury allocation decisions</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Risk framework approval</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Liquidity policies</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Profit distribution policies</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Ecosystem expansion initiatives</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Constitutional amendments</li>
+        </ul>
+
+        <p style="margin-top:1.25rem; font-size:13px; color:#6B7A94;">Governance Sub-Communities:</p>
+        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Proposal Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Policy Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Strategy Review Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Risk Oversight Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Ecosystem Development Sub-Community</li>
+        </ul>
+
+        <p style="margin-top:1.25rem; color:#fff; font-weight:500; font-size:14px;">Execution Layer (Operational Authority)</p>
+        <p style="margin-top:0.5rem;">The Execution Layer implements governance-approved decisions and manages operational activities throughout the ecosystem.</p>
+        <p style="margin-top:0.75rem; font-size:13px; color:#6B7A94;">Responsibilities:</p>
+        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Treasury operations</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Risk enforcement</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Liquidity management</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Copy-trading execution oversight</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>NAV tracking and reporting</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Governance implementation</li>
+        </ul>
+
+        <p style="margin-top:1.25rem; font-size:13px; color:#6B7A94;">Execution Sub-Communities:</p>
+        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Treasury Operations Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Risk Management Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Liquidity Management Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Strategy Execution Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Operations Coordination Sub-Community</li>
+        </ul>
+      </div>
+
+      <!-- Section 3 -->
+      <div id="wp-3" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">3. DAO Token Role</h3>
+        <p>SX is the native governance and ownership token of ShineX DAO, representing participation, governance rights, and treasury exposure.</p>
+        <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:10px; padding:1.25rem 1.5rem; margin-top:1rem;">
+          <p style="font-size:12px; color:#F5A623; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.75rem;">Token Information</p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <div style="font-size:13px; color:#6B7A94;">Name</div><div style="font-size:13px; color:#fff; font-weight:500;">ShineX</div>
+            <div style="font-size:13px; color:#6B7A94;">Symbol</div><div style="font-size:13px; color:#F5A623; font-weight:600;">SX</div>
+            <div style="font-size:13px; color:#6B7A94;">Total Supply</div><div style="font-size:13px; color:#fff; font-weight:500;">1,000 SX</div>
+            <div style="font-size:13px; color:#6B7A94;">Supply Model</div><div style="font-size:13px; color:#fff; font-weight:500;">Fixed Supply</div>
+          </div>
+        </div>
+        <p style="margin-top:1rem; font-size:13px; color:#6B7A94;">Rights granted by SX token:</p>
+        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:6px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Governance Rights</strong> — Participation in governance voting and ecosystem decisions.</span></li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Treasury Participation Rights</strong> — Exposure to treasury growth and ecosystem performance.</span></li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Ecosystem Participation Rights</strong> — Access to approved DAO services, initiatives, and community opportunities.</span></li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Distribution Eligibility</strong> — Eligibility to participate in approved treasury redistribution mechanisms.</span></li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Liquidity Participation</strong> — Participation within treasury-supported liquidity systems.</span></li>
+        </ul>
+      </div>
+
+      <!-- Section 4 -->
+      <div id="wp-4" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">4. Token Allocation</h3>
+        <p>The total supply of SX is fixed at 1,000 SX. The allocation model balances community ownership, treasury sustainability, ecosystem growth, and long-term alignment.</p>
+        <!-- Allocation table -->
+        <div style="margin-top:1.25rem; border:0.5px solid rgba(255,255,255,0.07); border-radius:10px; overflow:hidden;">
+          <div style="display:grid; grid-template-columns:2fr 1fr 1fr; background:#1C2230; padding:10px 16px; border-bottom:0.5px solid rgba(255,255,255,0.07);">
+            <span style="font-size:11px; font-weight:700; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em;">Category</span>
+            <span style="font-size:11px; font-weight:700; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em;">Tokens</span>
+            <span style="font-size:11px; font-weight:700; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em;">%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:2fr 1fr 1fr; padding:12px 16px; border-bottom:0.5px solid rgba(255,255,255,0.05); align-items:center;">
+            <div>
+              <div style="font-size:13px; color:#fff; font-weight:500;">Community Allocation</div>
+              <div style="font-size:11px; color:#6B7A94; margin-top:2px;">Core ownership base — governance and ecosystem access</div>
+            </div>
+            <span style="font-size:13px; color:#fff;">700 SX</span>
+            <span style="font-size:13px; color:#F5A623; font-weight:600;">70%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:2fr 1fr 1fr; padding:12px 16px; border-bottom:0.5px solid rgba(255,255,255,0.05); align-items:center;">
+            <div>
+              <div style="font-size:13px; color:#fff; font-weight:500;">DAO Treasury Reserve</div>
+              <div style="font-size:11px; color:#6B7A94; margin-top:2px;">Growth, partnerships, liquidity, and operational flexibility</div>
+            </div>
+            <span style="font-size:13px; color:#fff;">200 SX</span>
+            <span style="font-size:13px; color:#F5A623; font-weight:600;">20%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:2fr 1fr 1fr; padding:12px 16px; align-items:center;">
+            <div>
+              <div style="font-size:13px; color:#fff; font-weight:500;">Founding Team Allocation</div>
+              <div style="font-size:11px; color:#6B7A94; margin-top:2px;">Long-term alignment, milestone-based release</div>
+            </div>
+            <span style="font-size:13px; color:#fff;">100 SX</span>
+            <span style="font-size:13px; color:#F5A623; font-weight:600;">10%</span>
+          </div>
+        </div>
+        <!-- Visual bar -->
+        <div style="margin-top:1rem; height:8px; border-radius:99px; overflow:hidden; display:flex;">
+          <div style="width:70%; background:#F5A623;"></div>
+          <div style="width:20%; background:#6B7A94;"></div>
+          <div style="width:10%; background:#1C2230; border:0.5px solid rgba(255,255,255,0.1);"></div>
+        </div>
+        <div style="display:flex; gap:1.5rem; margin-top:8px;">
+          <span style="font-size:11px; color:#6B7A94; display:flex; align-items:center; gap:5px;"><span style="display:inline-block; width:8px; height:8px; border-radius:2px; background:#F5A623;"></span>Community 70%</span>
+          <span style="font-size:11px; color:#6B7A94; display:flex; align-items:center; gap:5px;"><span style="display:inline-block; width:8px; height:8px; border-radius:2px; background:#6B7A94;"></span>Treasury 20%</span>
+          <span style="font-size:11px; color:#6B7A94; display:flex; align-items:center; gap:5px;"><span style="display:inline-block; width:8px; height:8px; border-radius:2px; background:#1C2230; border:0.5px solid rgba(255,255,255,0.2);"></span>Team 10%</span>
+        </div>
+      </div>
+
+      <!-- Section 5 -->
+      <div id="wp-5" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">5. DAO Treasury Model</h3>
+        <p>The DAO Treasury serves as the central financial engine of the ShineX DAO ecosystem. All economic activity connects back to treasury growth and treasury protection.</p>
+
+        <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:10px; padding:1.25rem 1.5rem; margin-top:1rem;">
+          <p style="font-size:12px; color:#F5A623; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.75rem;">Initial Token Structure</p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:13px;">
+            <span style="color:#6B7A94;">Initial Token Price</span><span style="color:#fff; font-weight:500;">$100 per SX</span>
+            <span style="color:#6B7A94;">Total Supply</span><span style="color:#fff; font-weight:500;">1,000 SX</span>
+            <span style="color:#6B7A94;">Initial Treasury (if fully acquired)</span><span style="color:#F5A623; font-weight:600;">$100,000</span>
+          </div>
+        </div>
+
+        <p style="margin-top:1.25rem; color:#fff; font-weight:500; font-size:14px;">Treasury Protection Mechanisms</p>
+        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Risk limits and maximum drawdown controls</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Exposure controls and reserve allocation</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Liquidity buffers</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Strategy diversification</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Emergency treasury safeguards</li>
+        </ul>
+
+        <p style="margin-top:1.25rem; color:#fff; font-weight:500; font-size:14px;">Redistribution Mechanism</p>
+        <p style="margin-top:0.5rem;">When treasury profits are generated, governance may allocate across:</p>
+        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:6px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Treasury Reinvestment</strong> — Strengthening growth and future earning capacity.</span></li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Member Distribution Pool</strong> — Direct distributions to eligible SX holders.</span></li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">SX Liquidity Pool</strong> — Supporting liquidity and market efficiency for SX token.</span></li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">DAO Activities</strong> — Ecosystem development, technology, operations, and community initiatives.</span></li>
+        </ul>
+      </div>
+
+      <!-- Section 6 -->
+      <div id="wp-6" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">6. DAO Structure</h3>
+        <p>The ShineX DAO operates through a layered system ensuring that strategy providers never control treasury funds while governance maintains full oversight.</p>
+        <div style="margin-top:1.25rem; display:flex; flex-direction:column; align-items:center; gap:0;">
+          <div style="background:#1C2230; border:0.5px solid rgba(245,166,35,0.3); border-radius:8px; padding:10px 32px; font-size:13px; font-weight:500; color:#F5A623; width:240px; text-align:center;">Token Holders</div>
+          <div style="width:0.5px; height:20px; background:rgba(255,255,255,0.1);"></div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px 32px; font-size:13px; color:#fff; width:240px; text-align:center;">ShineX DAO</div>
+          <div style="width:0.5px; height:20px; background:rgba(255,255,255,0.1);"></div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px 32px; font-size:13px; color:#fff; width:240px; text-align:center;">Governance Layer</div>
+          <div style="width:0.5px; height:20px; background:rgba(255,255,255,0.1);"></div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px 32px; font-size:13px; color:#fff; width:240px; text-align:center;">Execution Layer</div>
+          <div style="width:0.5px; height:20px; background:rgba(255,255,255,0.1);"></div>
+          <div style="background:#1C2230; border:0.5px solid rgba(245,166,35,0.3); border-radius:8px; padding:10px 32px; font-size:13px; font-weight:500; color:#F5A623; width:240px; text-align:center;">DAO Treasury</div>
+          <div style="width:0.5px; height:20px; background:rgba(255,255,255,0.1);"></div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px 32px; font-size:13px; color:#fff; width:240px; text-align:center;">Approved Strategy Providers</div>
+          <div style="width:0.5px; height:20px; background:rgba(255,255,255,0.1);"></div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px 32px; font-size:13px; color:#fff; width:240px; text-align:center;">Copy-Trading System</div>
+          <div style="width:0.5px; height:20px; background:rgba(255,255,255,0.1);"></div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px 32px; font-size:13px; color:#fff; width:240px; text-align:center;">Markets</div>
+        </div>
+      </div>
+
+      <!-- Section 7 -->
+      <div id="wp-7" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">7. DAO Principle</h3>
+        <p>ShineX DAO is built on a strict separation of responsibilities:</p>
+        <ul style="margin:0.75rem 0 0 0; display:flex; flex-direction:column; gap:6px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Governance</strong> — determines direction</span></li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Execution</strong> — implements decisions</span></li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Treasury</strong> — retains custody</span></li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Strategy providers</strong> — generate signals only</span></li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Systems</strong> — execute approved strategies</span></li>
+        </ul>
+      </div>
+
+      <!-- Section 8 -->
+      <div id="wp-8" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">8. Key Innovation</h3>
+        <p>The defining innovation of ShineX DAO is the combination of:</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:1rem;">
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px 14px; font-size:13px; color:#8896AD;">Community ownership</div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px 14px; font-size:13px; color:#8896AD;">Treasury-backed value creation</div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px 14px; font-size:13px; color:#8896AD;">Governance-driven allocation</div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px 14px; font-size:13px; color:#8896AD;">Professional strategy execution</div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px 14px; font-size:13px; color:#8896AD;">Treasury-controlled liquidity</div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px 14px; font-size:13px; color:#8896AD;">Structured copy-trading systems</div>
+        </div>
+      </div>
+
+      <!-- Section 9 -->
+      <div id="wp-9" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">9. Value Principle</h3>
+        <p>The value of ShineX DAO is driven by:</p>
+        <ul style="margin:0.75rem 0 0 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Treasury growth</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Treasury protection</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Governance participation</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Liquidity support</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Ecosystem expansion</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Long-term capital efficiency</li>
+        </ul>
+        <p style="margin-top:0.75rem;">Because SX token supply is fixed, treasury growth has the potential to strengthen the economic foundation supporting the ecosystem over time.</p>
+      </div>
+
+      <!-- Section 10 -->
+      <div id="wp-10" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">10. Long-Term Vision</h3>
+        <p>The long-term vision of ShineX DAO is to become a community-owned treasury ecosystem that combines governance, treasury management, liquidity infrastructure, and professional capital allocation within a single scalable framework.</p>
+        <p style="margin-top:0.75rem;">Over time, ShineX DAO aims to build:</p>
+        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>A resilient treasury</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>A sustainable governance system</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>A strong liquidity framework</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>A global community of contributors</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>A long-term treasury-backed ecosystem</li>
+        </ul>
+      </div>
+
+      <!-- Section 11 -->
+      <div id="wp-11" style="margin-bottom:1rem; scroll-margin-top:80px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">11. Simple Summary</h3>
+        <div style="background:#1C2230; border:0.5px solid rgba(245,166,35,0.2); border-radius:10px; padding:1.5rem;">
+          <ul style="display:flex; flex-direction:column; gap:8px; list-style:none; padding:0; margin:0;">
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>ShineX DAO is a community-owned treasury ecosystem.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Members participate through SX ownership.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>The DAO governs decisions.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>The Execution Layer implements operations.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>The Treasury serves as the financial engine.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Approved strategies generate signals.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Copy-trading systems execute those signals.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Treasury growth strengthens the ecosystem.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:0.5px solid rgba(255,255,255,0.07); text-align:center; font-size:12px; color:#4A5568;">
+        ShineX DAO &bull; Whitepaper Version 1.0 &bull; Official Ecosystem Document
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
