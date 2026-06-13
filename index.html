@@ -1334,7 +1334,6 @@
 <!-- WHITEPAPER MODAL -->
 <div id="whitepaper-modal" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px); overflow-y:auto; padding:2rem 1rem;">
   <div style="max-width:760px; margin:2rem auto; background:#13171F; border:0.5px solid rgba(245,166,35,0.2); border-radius:16px; overflow:hidden;">
-    <!-- Header -->
     <div style="display:flex; align-items:center; justify-content:space-between; padding:1.25rem 1.75rem; border-bottom:0.5px solid rgba(255,255,255,0.07); background:#1C2230; position:sticky; top:0; z-index:10;">
       <div>
         <p style="font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#F5A623; margin-bottom:3px;">Governance Document</p>
@@ -1342,12 +1341,11 @@
       </div>
       <button onclick="document.getElementById('whitepaper-modal').style.display='none'" style="background:rgba(255,255,255,0.06); border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; width:36px; height:36px; color:#8896AD; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:1; flex-shrink:0;">&times;</button>
     </div>
-
-    <!-- Body -->
     <div style="padding:2.5rem 2rem; font-family:'Inter',sans-serif; color:#8896AD; line-height:1.8; font-size:15px;">
 
       <h1 style="font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:#fff; text-align:center; margin-bottom:4px; letter-spacing:-0.5px;">SHINEX DAO WHITEPAPER</h1>
-      <p style="text-align:center; color:#4A5568; font-size:13px; margin-bottom:2.5rem;">Version 1.0 &bull; Community-Owned Treasury Ecosystem</p>
+      <p style="text-align:center; color:#fff; font-size:14px; margin-bottom:4px;">Version 1.0</p>
+      <p style="text-align:center; color:#8896AD; font-size:13px; margin-bottom:2.5rem;">Community-Owned Treasury Ecosystem</p>
 
       <!-- TOC -->
       <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:10px; padding:1.25rem 1.5rem; margin-bottom:2.5rem;">
@@ -1367,265 +1365,422 @@
         </div>
       </div>
 
-      <!-- Section 1 -->
+      <!-- SECTION 1 -->
       <div id="wp-1" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
-        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">1. ShineX DAO Overview</h3>
-        <p>ShineX DAO is a community-owned, treasury-backed trading ecosystem where members collectively govern capital allocated to structured copy-trading strategies.</p>
-        <p style="margin-top:0.75rem;">The system combines community ownership, treasury management, decentralized governance, and professional strategy execution into a single ecosystem designed for long-term growth.</p>
-        <p style="margin-top:0.75rem;">At its core, ShineX DAO operates as a structured financial organization where members collectively own the treasury, participate in governance, and benefit from treasury growth.</p>
-        <div style="background:#1C2230; border-left:2px solid #F5A623; border-radius:0 8px 8px 0; padding:1rem 1.25rem; margin-top:1rem;">
-          <p style="color:#fff; font-style:italic; font-size:14px;">Community-owned capital governed collectively and deployed through structured execution systems.</p>
-        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;">1. ShineX DAO Overview</h3>
+        <p style="margin-bottom:0.75rem;">ShineX DAO is a community-owned ecosystem designed to allow members to collectively own, govern, and grow a treasury through structured forex trading activities.</p>
+        <p style="margin-bottom:0.75rem;">By bringing together the resources of many members into a single treasury, the community can participate in larger opportunities that may be difficult to achieve through smaller individual accounts.</p>
+        <p style="margin-bottom:0.75rem;">The ecosystem combines community ownership, treasury management, governance, and structured forex trading activities into a single coordinated framework designed for long-term growth.</p>
+        <p style="margin-bottom:0.75rem;">Members participate through the SX token, which provides governance rights, treasury participation rights, and access to the ShineX ecosystem.</p>
+        <p>As the treasury grows larger, the profits may be reinvested into treasury growth, liquidity expansion, member distributions, and other DAO initiatives, creating alignment between community participation and the long-term success of the ecosystem.</p>
       </div>
 
-      <!-- Section 2 -->
+      <!-- SECTION 2 -->
       <div id="wp-2" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
-        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">2. DAO Governance Model and Sub-Communities</h3>
-        <p>ShineX DAO operates through a two-layer governance framework designed to separate decision-making from execution.</p>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;">2. DAO Governance Model and Sub-Communities</h3>
+        <p style="margin-bottom:0.75rem;">ShineX DAO operates through a two-layer governance framework designed to separate decision-making from execution.</p>
+        <p style="margin-bottom:1.25rem;">This structure ensures that governance remains community-driven while execution remains efficient, accountable, and scalable.</p>
 
-        <p style="margin-top:1.25rem; color:#fff; font-weight:500; font-size:14px;">Governance Layer (Decision Authority)</p>
-        <p style="margin-top:0.5rem;">The Governance Layer represents the collective authority of SX token holders and is responsible for determining the strategic direction of the ecosystem. Each SX token represents one vote.</p>
-        <p style="margin-top:0.75rem; font-size:13px; color:#6B7A94;">Responsibilities:</p>
-        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Approval and removal of strategy providers</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Treasury allocation decisions</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Risk framework approval</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Liquidity policies</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Profit distribution policies</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Ecosystem expansion initiatives</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Constitutional amendments</li>
+        <p style="color:#fff; font-weight:500; font-size:14px; margin-bottom:0.5rem;">Governance Layer (Decision Authority)</p>
+        <p style="margin-bottom:0.75rem;">The Governance Layer represents the collective authority of SX token holders.</p>
+        <p style="margin-bottom:1rem;">This layer is responsible for determining the strategic direction of the ecosystem.</p>
+
+        <p style="color:#fff; font-size:13px; font-weight:600; margin-bottom:0.5rem;">Responsibilities</p>
+        <ul style="margin:0 0 1rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Approval and removal of strategy providers</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury allocation decisions</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Risk framework approval</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Liquidity policies</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Profit distribution policies</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Ecosystem expansion initiatives</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Constitutional amendments</li>
+        </ul>
+        <p style="margin-bottom:0.75rem;">Each SX token represents one vote.</p>
+        <p style="margin-bottom:1.25rem;">Governance determines what should be done but does not directly perform operational activities.</p>
+
+        <p style="color:#fff; font-weight:500; font-size:14px; margin-bottom:0.5rem;">Governance Sub-Communities</p>
+        <p style="margin-bottom:0.75rem;">The Governance Layer may establish specialized sub-communities to improve governance efficiency and expertise.</p>
+        <p style="font-size:13px; margin-bottom:0.5rem;">Examples include:</p>
+        <ul style="margin:0 0 0.75rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Proposal Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Policy Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Strategy Review Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Risk Oversight Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Ecosystem Development Sub-Community</li>
+        </ul>
+        <p style="margin-bottom:1.5rem;">These groups assist governance but remain accountable to the DAO.</p>
+
+        <p style="color:#fff; font-weight:500; font-size:14px; margin-bottom:0.5rem;">Execution Layer (Operational Authority)</p>
+        <p style="margin-bottom:0.75rem;">The Execution Layer is responsible for implementing governance-approved decisions and managing operational activities throughout the ecosystem.</p>
+        <p style="margin-bottom:1rem;">The Execution Layer complements governance by transforming approved policies into practical execution.</p>
+
+        <p style="color:#fff; font-size:13px; font-weight:600; margin-bottom:0.5rem;">Responsibilities</p>
+        <ul style="margin:0 0 1.25rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury operations</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Risk enforcement</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Liquidity management</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Copy-trading execution oversight</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>NAV tracking and reporting</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Operational coordination</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Governance implementation</li>
         </ul>
 
-        <p style="margin-top:1.25rem; font-size:13px; color:#6B7A94;">Governance Sub-Communities:</p>
-        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Proposal Sub-Community</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Policy Sub-Community</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Strategy Review Sub-Community</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Risk Oversight Sub-Community</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Ecosystem Development Sub-Community</li>
+        <p style="color:#fff; font-weight:500; font-size:14px; margin-bottom:0.5rem;">Execution Sub-Communities</p>
+        <p style="margin-bottom:0.75rem;">The Execution Layer may establish specialized operational groups, including:</p>
+        <ul style="margin:0 0 0.75rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury Operations Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Risk Management Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Liquidity Management Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Strategy Execution Sub-Community</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Operations Coordination Sub-Community</li>
         </ul>
-
-        <p style="margin-top:1.25rem; color:#fff; font-weight:500; font-size:14px;">Execution Layer (Operational Authority)</p>
-        <p style="margin-top:0.5rem;">The Execution Layer implements governance-approved decisions and manages operational activities throughout the ecosystem.</p>
-        <p style="margin-top:0.75rem; font-size:13px; color:#6B7A94;">Responsibilities:</p>
-        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Treasury operations</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Risk enforcement</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Liquidity management</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Copy-trading execution oversight</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>NAV tracking and reporting</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Governance implementation</li>
-        </ul>
-
-        <p style="margin-top:1.25rem; font-size:13px; color:#6B7A94;">Execution Sub-Communities:</p>
-        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Treasury Operations Sub-Community</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Risk Management Sub-Community</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Liquidity Management Sub-Community</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Strategy Execution Sub-Community</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Operations Coordination Sub-Community</li>
-        </ul>
+        <p>These groups ensure effective implementation of governance decisions.</p>
       </div>
 
-      <!-- Section 3 -->
+      <!-- SECTION 3 -->
       <div id="wp-3" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
-        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">3. DAO Token Role</h3>
-        <p>SX is the native governance and ownership token of ShineX DAO, representing participation, governance rights, and treasury exposure.</p>
-        <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:10px; padding:1.25rem 1.5rem; margin-top:1rem;">
-          <p style="font-size:12px; color:#F5A623; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.75rem;">Token Information</p>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-            <div style="font-size:13px; color:#6B7A94;">Name</div><div style="font-size:13px; color:#fff; font-weight:500;">ShineX</div>
-            <div style="font-size:13px; color:#6B7A94;">Symbol</div><div style="font-size:13px; color:#F5A623; font-weight:600;">SX</div>
-            <div style="font-size:13px; color:#6B7A94;">Total Supply</div><div style="font-size:13px; color:#fff; font-weight:500;">1,000 SX</div>
-            <div style="font-size:13px; color:#6B7A94;">Supply Model</div><div style="font-size:13px; color:#fff; font-weight:500;">Fixed Supply</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;">3. DAO Token Role</h3>
+        <p style="margin-bottom:0.75rem;">SX is the native governance and ownership token of ShineX DAO.</p>
+        <p style="margin-bottom:1.25rem;">SX represents participation in the ecosystem and provides access to governance rights and treasury exposure.</p>
+
+        <p style="color:#fff; font-size:13px; font-weight:600; margin-bottom:0.75rem;">Token Information</p>
+        <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:10px; padding:1.25rem 1.5rem; margin-bottom:1.25rem;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <span style="font-size:13px; color:#6B7A94;">Name:</span><span style="font-size:13px; color:#fff; font-weight:500;">ShineX</span>
+            <span style="font-size:13px; color:#6B7A94;">Symbol:</span><span style="font-size:13px; color:#F5A623; font-weight:700;">SX</span>
+            <span style="font-size:13px; color:#6B7A94;">Total Supply:</span><span style="font-size:13px; color:#fff; font-weight:500;">1,000 SX</span>
+            <span style="font-size:13px; color:#6B7A94;">Supply Model:</span><span style="font-size:13px; color:#fff; font-weight:500;">Fixed Supply</span>
           </div>
         </div>
-        <p style="margin-top:1rem; font-size:13px; color:#6B7A94;">Rights granted by SX token:</p>
-        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:6px; list-style:none; padding:0;">
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Governance Rights</strong> — Participation in governance voting and ecosystem decisions.</span></li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Treasury Participation Rights</strong> — Exposure to treasury growth and ecosystem performance.</span></li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Ecosystem Participation Rights</strong> — Access to approved DAO services, initiatives, and community opportunities.</span></li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Distribution Eligibility</strong> — Eligibility to participate in approved treasury redistribution mechanisms.</span></li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Liquidity Participation</strong> — Participation within treasury-supported liquidity systems.</span></li>
-        </ul>
+        <p style="margin-bottom:1rem;">No additional tokens may be created except through governance-approved constitutional procedures.</p>
+
+        <p style="color:#fff; font-size:13px; font-weight:600; margin-bottom:0.75rem;">Rights Granted by SX Token</p>
+        <p style="margin-bottom:0.75rem;">SX holders receive:</p>
+        <div style="display:flex; flex-direction:column; gap:1rem;">
+          <div>
+            <p style="font-size:13px; color:#fff; font-weight:500; margin-bottom:3px;">Governance Rights</p>
+            <p style="font-size:13px;">Participation in governance voting and ecosystem decisions.</p>
+          </div>
+          <div>
+            <p style="font-size:13px; color:#fff; font-weight:500; margin-bottom:3px;">Treasury Participation Rights</p>
+            <p style="font-size:13px;">Exposure to treasury growth and ecosystem performance.</p>
+          </div>
+          <div>
+            <p style="font-size:13px; color:#fff; font-weight:500; margin-bottom:3px;">Ecosystem Participation Rights</p>
+            <p style="font-size:13px;">Access to approved DAO services, initiatives, and community opportunities.</p>
+          </div>
+          <div>
+            <p style="font-size:13px; color:#fff; font-weight:500; margin-bottom:3px;">Distribution Eligibility</p>
+            <p style="font-size:13px;">Eligibility to participate in approved treasury redistribution mechanisms.</p>
+          </div>
+          <div>
+            <p style="font-size:13px; color:#fff; font-weight:500; margin-bottom:3px;">Liquidity Participation</p>
+            <p style="font-size:13px;">Participation within treasury-supported liquidity systems.</p>
+          </div>
+        </div>
       </div>
 
-      <!-- Section 4 -->
+      <!-- SECTION 4 -->
       <div id="wp-4" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
-        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">4. Token Allocation</h3>
-        <p>The total supply of SX is fixed at 1,000 SX. The allocation model balances community ownership, treasury sustainability, ecosystem growth, and long-term alignment.</p>
-        <!-- Allocation table -->
-        <div style="margin-top:1.25rem; border:0.5px solid rgba(255,255,255,0.07); border-radius:10px; overflow:hidden;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;">4. Token Allocation</h3>
+        <p style="margin-bottom:0.75rem;">The total supply of SX is fixed at 1,000 SX.</p>
+        <p style="margin-bottom:1.25rem;">The token allocation structure is designed to balance community ownership, treasury sustainability, ecosystem growth, and long-term alignment between contributors and the DAO.</p>
+
+        <p style="color:#fff; font-size:13px; font-weight:600; margin-bottom:1rem;">Allocation Structure</p>
+
+        <p style="color:#fff; font-weight:500; font-size:14px; margin-bottom:0.5rem;">1. Community Allocation</p>
+        <p style="color:#F5A623; font-size:13px; font-weight:600; margin-bottom:0.5rem;">700 SX (70%)</p>
+        <p style="margin-bottom:0.75rem;">This portion is allocated to public members of the ShineX DAO.</p>
+        <p style="font-size:13px; color:#fff; font-weight:500; margin-bottom:0.4rem;">Purpose:</p>
+        <ul style="margin:0 0 0.75rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Community ownership of the DAO treasury</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Participation in governance decisions</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Access to ecosystem benefits</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Alignment with treasury performance</li>
+        </ul>
+        <p style="margin-bottom:1.5rem;">The Community Allocation represents the core ownership base of the DAO, ensuring that decision-making power and economic participation are distributed across members.</p>
+
+        <p style="color:#fff; font-weight:500; font-size:14px; margin-bottom:0.5rem;">2. DAO Treasury Reserve</p>
+        <p style="color:#F5A623; font-size:13px; font-weight:600; margin-bottom:0.5rem;">200 SX (20%)</p>
+        <p style="margin-bottom:0.75rem;">This portion is held by the DAO Treasury under governance control.</p>
+        <p style="font-size:13px; color:#fff; font-weight:500; margin-bottom:0.4rem;">Purpose:</p>
+        <ul style="margin:0 0 0.75rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Ecosystem expansion and growth initiatives</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Strategic partnerships</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Liquidity support mechanisms</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Contribution reward programs</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury-level operational flexibility</li>
+        </ul>
+        <p style="margin-bottom:0.75rem;">These tokens are not immediately circulating and are deployed only through governance-approved actions.</p>
+        <p style="margin-bottom:1.5rem;">The Treasury Reserve ensures the DAO has internal resources to adapt, grow, and stabilize the ecosystem over time.</p>
+
+        <p style="color:#fff; font-weight:500; font-size:14px; margin-bottom:0.5rem;">3. Founding Team Allocation</p>
+        <p style="color:#F5A623; font-size:13px; font-weight:600; margin-bottom:0.5rem;">100 SX (10%)</p>
+        <p style="margin-bottom:0.75rem;">This portion is allocated to the founding team responsible for building and maintaining the ShineX ecosystem.</p>
+        <p style="font-size:13px; color:#fff; font-weight:500; margin-bottom:0.4rem;">Purpose:</p>
+        <ul style="margin:0 0 0.75rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Long-term alignment with treasury growth</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Access to ecosystem benefits</li>
+        </ul>
+        <p style="font-size:13px; color:#fff; font-weight:500; margin-bottom:0.4rem;">Recommended Structure:</p>
+        <ul style="margin:0 0 0.75rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Gradual release based on milestones</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Alignment with DAO performance and sustainability</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Long-term commitment to ecosystem development</li>
+        </ul>
+        <p style="margin-bottom:1.5rem;">This structure helps ensure that the founding team remains incentivized to grow the treasury and strengthen the ecosystem over the long term rather than focusing on short-term outcomes.</p>
+
+        <p style="color:#fff; font-size:13px; font-weight:600; margin-bottom:0.75rem;">Allocation Summary</p>
+        <div style="border:0.5px solid rgba(255,255,255,0.07); border-radius:10px; overflow:hidden; margin-bottom:1.25rem;">
           <div style="display:grid; grid-template-columns:2fr 1fr 1fr; background:#1C2230; padding:10px 16px; border-bottom:0.5px solid rgba(255,255,255,0.07);">
-            <span style="font-size:11px; font-weight:700; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em;">Category</span>
+            <span style="font-size:11px; font-weight:700; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em;">Allocation Category</span>
             <span style="font-size:11px; font-weight:700; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em;">Tokens</span>
-            <span style="font-size:11px; font-weight:700; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em;">%</span>
+            <span style="font-size:11px; font-weight:700; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em;">Percentage</span>
           </div>
-          <div style="display:grid; grid-template-columns:2fr 1fr 1fr; padding:12px 16px; border-bottom:0.5px solid rgba(255,255,255,0.05); align-items:center;">
-            <div>
-              <div style="font-size:13px; color:#fff; font-weight:500;">Community Allocation</div>
-              <div style="font-size:11px; color:#6B7A94; margin-top:2px;">Core ownership base — governance and ecosystem access</div>
-            </div>
-            <span style="font-size:13px; color:#fff;">700 SX</span>
-            <span style="font-size:13px; color:#F5A623; font-weight:600;">70%</span>
+          <div style="display:grid; grid-template-columns:2fr 1fr 1fr; padding:10px 16px; border-bottom:0.5px solid rgba(255,255,255,0.05); font-size:13px;">
+            <span style="color:#8896AD;">Community Allocation</span><span style="color:#fff;">700 SX</span><span style="color:#F5A623; font-weight:600;">70%</span>
           </div>
-          <div style="display:grid; grid-template-columns:2fr 1fr 1fr; padding:12px 16px; border-bottom:0.5px solid rgba(255,255,255,0.05); align-items:center;">
-            <div>
-              <div style="font-size:13px; color:#fff; font-weight:500;">DAO Treasury Reserve</div>
-              <div style="font-size:11px; color:#6B7A94; margin-top:2px;">Growth, partnerships, liquidity, and operational flexibility</div>
-            </div>
-            <span style="font-size:13px; color:#fff;">200 SX</span>
-            <span style="font-size:13px; color:#F5A623; font-weight:600;">20%</span>
+          <div style="display:grid; grid-template-columns:2fr 1fr 1fr; padding:10px 16px; border-bottom:0.5px solid rgba(255,255,255,0.05); font-size:13px;">
+            <span style="color:#8896AD;">DAO Treasury Reserve</span><span style="color:#fff;">200 SX</span><span style="color:#F5A623; font-weight:600;">20%</span>
           </div>
-          <div style="display:grid; grid-template-columns:2fr 1fr 1fr; padding:12px 16px; align-items:center;">
-            <div>
-              <div style="font-size:13px; color:#fff; font-weight:500;">Founding Team Allocation</div>
-              <div style="font-size:11px; color:#6B7A94; margin-top:2px;">Long-term alignment, milestone-based release</div>
-            </div>
-            <span style="font-size:13px; color:#fff;">100 SX</span>
-            <span style="font-size:13px; color:#F5A623; font-weight:600;">10%</span>
+          <div style="display:grid; grid-template-columns:2fr 1fr 1fr; padding:10px 16px; border-bottom:0.5px solid rgba(255,255,255,0.05); font-size:13px;">
+            <span style="color:#8896AD;">Founding Team Allocation</span><span style="color:#fff;">100 SX</span><span style="color:#F5A623; font-weight:600;">10%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:2fr 1fr 1fr; padding:10px 16px; font-size:13px; background:#1C2230;">
+            <span style="color:#fff; font-weight:600;">Total Supply</span><span style="color:#fff; font-weight:600;">1,000 SX</span><span style="color:#F5A623; font-weight:700;">100%</span>
           </div>
         </div>
-        <!-- Visual bar -->
-        <div style="margin-top:1rem; height:8px; border-radius:99px; overflow:hidden; display:flex;">
-          <div style="width:70%; background:#F5A623;"></div>
-          <div style="width:20%; background:#6B7A94;"></div>
-          <div style="width:10%; background:#1C2230; border:0.5px solid rgba(255,255,255,0.1);"></div>
-        </div>
-        <div style="display:flex; gap:1.5rem; margin-top:8px;">
-          <span style="font-size:11px; color:#6B7A94; display:flex; align-items:center; gap:5px;"><span style="display:inline-block; width:8px; height:8px; border-radius:2px; background:#F5A623;"></span>Community 70%</span>
-          <span style="font-size:11px; color:#6B7A94; display:flex; align-items:center; gap:5px;"><span style="display:inline-block; width:8px; height:8px; border-radius:2px; background:#6B7A94;"></span>Treasury 20%</span>
-          <span style="font-size:11px; color:#6B7A94; display:flex; align-items:center; gap:5px;"><span style="display:inline-block; width:8px; height:8px; border-radius:2px; background:#1C2230; border:0.5px solid rgba(255,255,255,0.2);"></span>Team 10%</span>
-        </div>
+
+        <p style="color:#fff; font-size:13px; font-weight:600; margin-bottom:0.5rem;">Allocation Principle</p>
+        <p style="margin-bottom:0.5rem;">The SX allocation model is designed around a simple principle:</p>
+        <p>The community should own the majority of the ecosystem, the treasury should retain sufficient resources for growth and stability, and the founding team should remain aligned with the long-term success of the DAO.</p>
       </div>
 
-      <!-- Section 5 -->
+      <!-- SECTION 5 -->
       <div id="wp-5" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
-        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">5. DAO Treasury Model</h3>
-        <p>The DAO Treasury serves as the central financial engine of the ShineX DAO ecosystem. All economic activity connects back to treasury growth and treasury protection.</p>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;">5. DAO Treasury Model</h3>
+        <p style="margin-bottom:0.75rem;">The DAO Treasury serves as the central financial engine of the ShineX DAO ecosystem.</p>
+        <p style="margin-bottom:1.25rem;">All economic activity within the DAO ultimately connects back to treasury growth and treasury protection.</p>
 
-        <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:10px; padding:1.25rem 1.5rem; margin-top:1rem;">
-          <p style="font-size:12px; color:#F5A623; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.75rem;">Initial Token Structure</p>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:13px;">
-            <span style="color:#6B7A94;">Initial Token Price</span><span style="color:#fff; font-weight:500;">$100 per SX</span>
-            <span style="color:#6B7A94;">Total Supply</span><span style="color:#fff; font-weight:500;">1,000 SX</span>
-            <span style="color:#6B7A94;">Initial Treasury (if fully acquired)</span><span style="color:#F5A623; font-weight:600;">$100,000</span>
+        <p style="color:#fff; font-weight:500; font-size:14px; margin-bottom:0.75rem;">SX Token Capital Formation, Ownership, and Liquidity Flow</p>
+        <p style="margin-bottom:0.75rem;">ShineX DAO is structured around a token-based capital pooling system where members contribute capital by purchasing SX tokens.</p>
+        <p style="margin-bottom:1.25rem;">These tokens represent proportional ownership within the DAO ecosystem.</p>
+
+        <p style="color:#fff; font-size:13px; font-weight:600; margin-bottom:0.75rem;">Initial Token Structure</p>
+        <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:10px; padding:1.25rem 1.5rem; margin-bottom:1rem;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; font-size:13px;">
+            <span style="color:#6B7A94;">Token Name:</span><span style="color:#fff; font-weight:500;">ShineX</span>
+            <span style="color:#6B7A94;">Symbol:</span><span style="color:#F5A623; font-weight:700;">SX</span>
+            <span style="color:#6B7A94;">Total Supply:</span><span style="color:#fff; font-weight:500;">1,000 SX</span>
+            <span style="color:#6B7A94;">Initial Token Price:</span><span style="color:#fff; font-weight:500;">$100</span>
+          </div>
+          <div style="margin-top:1rem; padding-top:1rem; border-top:0.5px solid rgba(255,255,255,0.07);">
+            <p style="font-size:13px; margin-bottom:4px;">If all tokens are acquired:</p>
+            <p style="font-size:13px; margin-bottom:4px;">1,000 SX &times; $100</p>
+            <p style="font-size:13px; font-weight:700; color:#F5A623;">&equals; $100,000 Initial Treasury</p>
           </div>
         </div>
+        <p style="margin-bottom:1.25rem;">This creates the initial treasury capital pool.</p>
 
-        <p style="margin-top:1.25rem; color:#fff; font-weight:500; font-size:14px;">Treasury Protection Mechanisms</p>
-        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Risk limits and maximum drawdown controls</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Exposure controls and reserve allocation</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Liquidity buffers</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Strategy diversification</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Emergency treasury safeguards</li>
+        <p style="color:#fff; font-size:13px; font-weight:600; margin-bottom:0.75rem;">Treasury Ownership Model</p>
+        <p style="margin-bottom:0.75rem;">Each SX token represents a proportional interest in the treasury ecosystem.</p>
+        <p style="margin-bottom:0.5rem;">With a fixed supply:</p>
+        <p style="margin-bottom:0.75rem; font-size:13px; color:#F5A623; font-weight:600;">10 SX = 1% of total token supply</p>
+        <p style="font-size:13px; margin-bottom:0.5rem;">The value of SX is influenced by:</p>
+        <ul style="margin:0 0 1.25rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury growth</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury reserves</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury performance</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Liquidity support</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Ecosystem development</li>
         </ul>
 
-        <p style="margin-top:1.25rem; color:#fff; font-weight:500; font-size:14px;">Redistribution Mechanism</p>
-        <p style="margin-top:0.5rem;">When treasury profits are generated, governance may allocate across:</p>
-        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:6px; list-style:none; padding:0;">
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Treasury Reinvestment</strong> — Strengthening growth and future earning capacity.</span></li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Member Distribution Pool</strong> — Direct distributions to eligible SX holders.</span></li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">SX Liquidity Pool</strong> — Supporting liquidity and market efficiency for SX token.</span></li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">DAO Activities</strong> — Ecosystem development, technology, operations, and community initiatives.</span></li>
+        <p style="color:#fff; font-weight:500; font-size:14px; margin-bottom:0.75rem;">Community-Owned Copy-Trading Treasury</p>
+        <p style="margin-bottom:0.75rem;">ShineX DAO operates a Community-Owned Copy-Trading Treasury.</p>
+        <p style="font-size:13px; margin-bottom:0.5rem;">Under this model:</p>
+        <ul style="margin:0 0 1rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Members pool capital through SX ownership</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury capital remains under DAO custody</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Trading Strategy providers generate trade signals</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury systems execute approved signals</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Strategy providers never directly control treasury funds</li>
         </ul>
+        <p style="font-size:13px; color:#fff; font-weight:500; margin-bottom:0.75rem;">Flow:</p>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:0; margin-bottom:1.5rem;">
+          <div style="background:rgba(245,166,35,0.1); border:0.5px solid rgba(245,166,35,0.3); border-radius:8px; padding:9px 28px; font-size:13px; font-weight:500; color:#F5A623; width:230px; text-align:center;">SX Purchase</div>
+          <div style="width:0.5px; height:18px; background:rgba(255,255,255,0.1);"></div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.08); border-radius:8px; padding:9px 28px; font-size:13px; color:#fff; width:230px; text-align:center;">Treasury Capital Pool</div>
+          <div style="width:0.5px; height:18px; background:rgba(255,255,255,0.1);"></div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.08); border-radius:8px; padding:9px 28px; font-size:13px; color:#fff; width:230px; text-align:center;">Approved Trading Strategies</div>
+          <div style="width:0.5px; height:18px; background:rgba(255,255,255,0.1);"></div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.08); border-radius:8px; padding:9px 28px; font-size:13px; color:#fff; width:230px; text-align:center;">Copy-Trading Execution</div>
+          <div style="width:0.5px; height:18px; background:rgba(255,255,255,0.1);"></div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.08); border-radius:8px; padding:9px 28px; font-size:13px; color:#fff; width:230px; text-align:center;">Profit / Loss</div>
+          <div style="width:0.5px; height:18px; background:rgba(255,255,255,0.1);"></div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.08); border-radius:8px; padding:9px 28px; font-size:13px; color:#fff; width:230px; text-align:center;">Treasury NAV Adjustment</div>
+          <div style="width:0.5px; height:18px; background:rgba(255,255,255,0.1);"></div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.08); border-radius:8px; padding:9px 28px; font-size:13px; color:#fff; width:230px; text-align:center;">Liquidity Pool Expansion</div>
+          <div style="width:0.5px; height:18px; background:rgba(255,255,255,0.1);"></div>
+          <div style="background:rgba(245,166,35,0.1); border:0.5px solid rgba(245,166,35,0.3); border-radius:8px; padding:9px 28px; font-size:13px; font-weight:500; color:#F5A623; width:230px; text-align:center;">SX Token Growth</div>
+        </div>
+
+        <p style="color:#fff; font-weight:500; font-size:14px; margin-bottom:0.75rem;">Treasury-Based Value Model</p>
+        <p style="margin-bottom:0.75rem;">The ShineX DAO ecosystem is built around a Treasury-Based Value Model.</p>
+        <p style="margin-bottom:0.75rem;">Under this model, treasury growth forms the foundation of ecosystem value.</p>
+        <p style="margin-bottom:1.25rem;">As treasury assets grow, governance may allocate additional capital toward tSX token liquidity support, treasury reserves, ecosystem development, and redistribution mechanisms.</p>
+        <p style="margin-bottom:1.25rem;">The treasury acts as the economic engine that supports the entire ecosystem.</p>
+
+        <p style="color:#fff; font-weight:500; font-size:14px; margin-bottom:0.75rem;">DAO Treasury Protection Layer</p>
+        <p style="margin-bottom:0.75rem;">DAO Treasury protection is a foundational objective of the DAO.</p>
+        <p style="font-size:13px; margin-bottom:0.5rem;">Treasury protection mechanisms may include:</p>
+        <ul style="margin:0 0 0.75rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Risk limits</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Maximum drawdown controls</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Exposure controls</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Reserve allocation</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Liquidity buffers</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Strategy diversification</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Emergency treasury safeguards</li>
+        </ul>
+        <p style="margin-bottom:1.25rem;">Capital preservation remains the first priority of the treasury.</p>
+
+        <p style="color:#fff; font-weight:500; font-size:14px; margin-bottom:0.75rem;">DAO Liquidity Framework</p>
+        <p style="margin-bottom:0.75rem;">The DAO Treasury serves as the primary source of liquidity support for the SX ecosystem.</p>
+        <p style="font-size:13px; margin-bottom:0.5rem;">Treasury-managed liquidity aims to:</p>
+        <ul style="margin:0 0 0.75rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Improve market depth</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Support orderly trading</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Reduce market friction</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Enable member participation</li>
+        </ul>
+        <p style="margin-bottom:1.25rem;">Liquidity allocation decisions remain subject to governance approval.</p>
+
+        <p style="color:#fff; font-weight:500; font-size:14px; margin-bottom:0.75rem;">Redistribution Mechanism</p>
+        <p style="margin-bottom:0.75rem;">When treasury profits are generated, governance may allocate profits across one or more of the following areas:</p>
+        <div style="display:flex; flex-direction:column; gap:1rem;">
+          <div>
+            <p style="font-size:13px; color:#fff; font-weight:500; margin-bottom:3px;">Treasury Reinvestment</p>
+            <p style="font-size:13px;">Strengthening treasury growth and future earning capacity.</p>
+          </div>
+          <div>
+            <p style="font-size:13px; color:#fff; font-weight:500; margin-bottom:3px;">Member Distribution Pool</p>
+            <p style="font-size:13px;">Direct distributions to eligible SX holders.</p>
+          </div>
+          <div>
+            <p style="font-size:13px; color:#fff; font-weight:500; margin-bottom:3px;">SX Liquidity Pool</p>
+            <p style="font-size:13px;">Supporting liquidity and market efficiency for SX token.</p>
+          </div>
+          <div>
+            <p style="font-size:13px; color:#fff; font-weight:500; margin-bottom:3px;">Other DAO Activities</p>
+            <p style="font-size:13px;">Funding ecosystem development, technology, operations, education, community initiatives, research, partnerships, and future expansion.</p>
+          </div>
+        </div>
       </div>
 
-      <!-- Section 6 -->
+      <!-- SECTION 6 -->
       <div id="wp-6" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
-        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">6. DAO Structure</h3>
-        <p>The ShineX DAO operates through a layered system ensuring that strategy providers never control treasury funds while governance maintains full oversight.</p>
-        <div style="margin-top:1.25rem; display:flex; flex-direction:column; align-items:center; gap:0;">
-          <div style="background:#1C2230; border:0.5px solid rgba(245,166,35,0.3); border-radius:8px; padding:10px 32px; font-size:13px; font-weight:500; color:#F5A623; width:240px; text-align:center;">Token Holders</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;">6. DAO Structure</h3>
+        <p style="margin-bottom:1rem;">The ShineX DAO operates through a layered system:</p>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:0; margin-bottom:1rem;">
+          <div style="background:rgba(245,166,35,0.1); border:0.5px solid rgba(245,166,35,0.3); border-radius:8px; padding:10px 28px; font-size:13px; font-weight:500; color:#F5A623; width:240px; text-align:center;">Token Holders</div>
           <div style="width:0.5px; height:20px; background:rgba(255,255,255,0.1);"></div>
-          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px 32px; font-size:13px; color:#fff; width:240px; text-align:center;">ShineX DAO</div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px 28px; font-size:13px; color:#fff; width:240px; text-align:center;">ShineX DAO</div>
           <div style="width:0.5px; height:20px; background:rgba(255,255,255,0.1);"></div>
-          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px 32px; font-size:13px; color:#fff; width:240px; text-align:center;">Governance Layer</div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px 28px; font-size:13px; color:#fff; width:240px; text-align:center;">Governance Layer</div>
           <div style="width:0.5px; height:20px; background:rgba(255,255,255,0.1);"></div>
-          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px 32px; font-size:13px; color:#fff; width:240px; text-align:center;">Execution Layer</div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px 28px; font-size:13px; color:#fff; width:240px; text-align:center;">Execution Layer</div>
           <div style="width:0.5px; height:20px; background:rgba(255,255,255,0.1);"></div>
-          <div style="background:#1C2230; border:0.5px solid rgba(245,166,35,0.3); border-radius:8px; padding:10px 32px; font-size:13px; font-weight:500; color:#F5A623; width:240px; text-align:center;">DAO Treasury</div>
+          <div style="background:rgba(245,166,35,0.1); border:0.5px solid rgba(245,166,35,0.3); border-radius:8px; padding:10px 28px; font-size:13px; font-weight:500; color:#F5A623; width:240px; text-align:center;">DAO Treasury</div>
           <div style="width:0.5px; height:20px; background:rgba(255,255,255,0.1);"></div>
-          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px 32px; font-size:13px; color:#fff; width:240px; text-align:center;">Approved Strategy Providers</div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px 28px; font-size:13px; color:#fff; width:240px; text-align:center;">Approved Strategy Providers</div>
           <div style="width:0.5px; height:20px; background:rgba(255,255,255,0.1);"></div>
-          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px 32px; font-size:13px; color:#fff; width:240px; text-align:center;">Copy-Trading System</div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px 28px; font-size:13px; color:#fff; width:240px; text-align:center;">Copy-Trading System</div>
           <div style="width:0.5px; height:20px; background:rgba(255,255,255,0.1);"></div>
-          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.1); border-radius:8px; padding:10px 32px; font-size:13px; color:#fff; width:240px; text-align:center;">Markets</div>
+          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px 28px; font-size:13px; color:#fff; width:240px; text-align:center;">Markets</div>
         </div>
+        <p>This structure ensures that strategy providers never control treasury funds while governance maintains oversight of the ecosystem.</p>
       </div>
 
-      <!-- Section 7 -->
+      <!-- SECTION 7 -->
       <div id="wp-7" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
-        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">7. DAO Principle</h3>
-        <p>ShineX DAO is built on a strict separation of responsibilities:</p>
-        <ul style="margin:0.75rem 0 0 0; display:flex; flex-direction:column; gap:6px; list-style:none; padding:0;">
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Governance</strong> — determines direction</span></li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Execution</strong> — implements decisions</span></li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Treasury</strong> — retains custody</span></li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Strategy providers</strong> — generate signals only</span></li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span><span><strong style="color:#fff; font-weight:500;">Systems</strong> — execute approved strategies</span></li>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;">7. DAO Principle</h3>
+        <p style="margin-bottom:0.75rem;">ShineX DAO is built on a strict separation of responsibilities.</p>
+        <ul style="margin:0 0 0.75rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Governance determines direction</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Execution implements decisions</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury retains custody</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Strategy providers generate signals</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Systems execute approved strategies</li>
         </ul>
+        <p>This structure promotes accountability, transparency, and operational efficiency.</p>
       </div>
 
-      <!-- Section 8 -->
+      <!-- SECTION 8 -->
       <div id="wp-8" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
-        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">8. Key Innovation</h3>
-        <p>The defining innovation of ShineX DAO is the combination of:</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:1rem;">
-          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px 14px; font-size:13px; color:#8896AD;">Community ownership</div>
-          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px 14px; font-size:13px; color:#8896AD;">Treasury-backed value creation</div>
-          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px 14px; font-size:13px; color:#8896AD;">Governance-driven allocation</div>
-          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px 14px; font-size:13px; color:#8896AD;">Professional strategy execution</div>
-          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px 14px; font-size:13px; color:#8896AD;">Treasury-controlled liquidity</div>
-          <div style="background:#1C2230; border:0.5px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px 14px; font-size:13px; color:#8896AD;">Structured copy-trading systems</div>
-        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;">8. Key Innovation</h3>
+        <p style="margin-bottom:0.75rem;">The defining innovation of ShineX DAO is the combination of:</p>
+        <ul style="margin:0 0 1rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Community ownership</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury-backed value creation</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Governance-driven allocation</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Professional strategy execution</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury-controlled liquidity</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Structured copy-trading systems</li>
+        </ul>
+        <p style="margin-bottom:0.5rem;">The DAO owns capital.</p>
+        <p style="margin-bottom:0.5rem;">The treasury retains custody.</p>
+        <p style="margin-bottom:0.5rem;">Strategy providers provide signals.</p>
+        <p style="margin-bottom:0.5rem;">Governance controls allocation.</p>
+        <p>Execution systems implement decisions.</p>
       </div>
 
-      <!-- Section 9 -->
+      <!-- SECTION 9 -->
       <div id="wp-9" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
-        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">9. Value Principle</h3>
-        <p>The value of ShineX DAO is driven by:</p>
-        <ul style="margin:0.75rem 0 0 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Treasury growth</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Treasury protection</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Governance participation</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Liquidity support</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Ecosystem expansion</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Long-term capital efficiency</li>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;">9. Value Principle</h3>
+        <p style="margin-bottom:0.75rem;">The value of ShineX DAO is driven by:</p>
+        <ul style="margin:0 0 0.75rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury growth</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury protection</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Governance participation</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Liquidity support</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Ecosystem expansion</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Long-term capital efficiency</li>
         </ul>
-        <p style="margin-top:0.75rem;">Because SX token supply is fixed, treasury growth has the potential to strengthen the economic foundation supporting the ecosystem over time.</p>
+        <p>Because SX token supply is fixed, treasury growth has the potential to strengthen the economic foundation supporting the ecosystem over time.</p>
       </div>
 
-      <!-- Section 10 -->
+      <!-- SECTION 10 -->
       <div id="wp-10" style="margin-bottom:2.5rem; scroll-margin-top:80px;">
-        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">10. Long-Term Vision</h3>
-        <p>The long-term vision of ShineX DAO is to become a community-owned treasury ecosystem that combines governance, treasury management, liquidity infrastructure, and professional capital allocation within a single scalable framework.</p>
-        <p style="margin-top:0.75rem;">Over time, ShineX DAO aims to build:</p>
-        <ul style="margin:0.5rem 0 0 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>A resilient treasury</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>A sustainable governance system</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>A strong liquidity framework</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>A global community of contributors</li>
-          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>A long-term treasury-backed ecosystem</li>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;">10. Long-Term Vision</h3>
+        <p style="margin-bottom:0.75rem;">The long-term vision of ShineX DAO is to become a community-owned treasury ecosystem that combines governance, treasury management, liquidity infrastructure, and professional capital allocation within a single scalable framework.</p>
+        <p style="margin-bottom:0.75rem;">Over time, ShineX DAO aims to build:</p>
+        <ul style="margin:0 0 0.75rem 0; display:flex; flex-direction:column; gap:5px; list-style:none; padding:0;">
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>A resilient treasury</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>A sustainable governance system</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>A strong liquidity framework</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>A global community of contributors</li>
+          <li style="display:flex; gap:10px; font-size:13px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>A long-term treasury-backed ecosystem</li>
         </ul>
+        <p>The objective is to create an organization where community ownership, disciplined treasury management, and structured execution work together to generate lasting value.</p>
       </div>
 
-      <!-- Section 11 -->
+      <!-- SECTION 11 -->
       <div id="wp-11" style="margin-bottom:1rem; scroll-margin-top:80px;">
-        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">11. Simple Summary</h3>
-        <div style="background:#1C2230; border:0.5px solid rgba(245,166,35,0.2); border-radius:10px; padding:1.5rem;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:#F5A623; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;">11. Simple Summary</h3>
+        <p style="margin-bottom:0.75rem;">In simple terms:</p>
+        <div style="background:#1C2230; border:0.5px solid rgba(245,166,35,0.2); border-radius:10px; padding:1.5rem; margin-bottom:1rem;">
           <ul style="display:flex; flex-direction:column; gap:8px; list-style:none; padding:0; margin:0;">
-            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>ShineX DAO is a community-owned treasury ecosystem.</li>
-            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Members participate through SX ownership.</li>
-            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>The DAO governs decisions.</li>
-            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>The Execution Layer implements operations.</li>
-            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>The Treasury serves as the financial engine.</li>
-            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Approved strategies generate signals.</li>
-            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Copy-trading systems execute those signals.</li>
-            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:6px; font-size:6px; flex-shrink:0;">●</span>Treasury growth strengthens the ecosystem.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>ShineX DAO is a community-owned treasury ecosystem.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Members participate through SX ownership.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>The DAO governs decisions.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>The Execution Layer implements operations.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>The Treasury serves as the financial engine.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Approved strategies generate signals.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Copy-trading systems execute those signals.</li>
+            <li style="display:flex; gap:10px; font-size:14px;"><span style="color:#F5A623; margin-top:7px; font-size:6px; flex-shrink:0;">●</span>Treasury growth strengthens the ecosystem.</li>
           </ul>
         </div>
+        <p>Together, these components create a structured, community-owned system designed for transparency, accountability, treasury protection, and long-term growth.</p>
       </div>
 
       <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:0.5px solid rgba(255,255,255,0.07); text-align:center; font-size:12px; color:#4A5568;">
